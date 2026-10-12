@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080b16" />
+  <title>Verity — Plagiarism Detection Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Verity home">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span>verity<span class="brand-dot">.</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <a class="nav-item active" href="#dashboard"><span class="nav-icon">◫</span> Overview</a>
+        <a class="nav-item" href="#checker"><span class="nav-icon">⌕</span> Plagiarism checker</a>
+        <a class="nav-item" href="#reports"><span class="nav-icon">▤</span> Reports</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+          <strong>Need a hand?</strong>
+          <p>Learn how to get the most accurate similarity results.</p>
+          <a href="#how-it-works">Explore guide <span>↗</span></a>
+        </div>
+        <div class="profile">
+          <div class="avatar">GV</div>
+          <div class="profile-info"><strong>Student Workspace</strong><span>Free plan</span></div>
+          <span class="more">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Workspace</span><b>/</b><strong>Overview</strong></div>
+        <div class="topbar-actions"><span class="status-dot"></span><span class="system-status">All systems operational</span><button class="icon-button" aria-label="Notifications">♧</button><div class="top-avatar">GV</div></div>
+      </header>
+
+      <section class="welcome-row">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> ACADEMIC INTEGRITY, REIMAGINED</div>
+          <h1>Clarity starts with<br><span>original thinking.</span></h1>
+          <p class="welcome-copy">Review your work with confidence. Find overlapping language, understand similarity, and make every submission your own.</p>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <div class="art-core"><span>V</span></div><div class="art-chip chip-a">✦ Originality</div><div class="art-chip chip-b">✓ Verified text</div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Overview statistics">
+        <article class="stat-card"><div class="stat-top"><span>Documents checked</span><span class="stat-icon purple">▤</span></div><div class="stat-value" id="documentsChecked">0</div><div class="stat-foot"><span class="trend">↗ Ready</span> for your first scan</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Average similarity</span><span class="stat-icon blue">◉</span></div><div class="stat-value"><span id="averageSimilarity">—</span><small id="averageLabel"></small></div><div class="stat-foot">Across this browser session</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Words analyzed</span><span class="stat-icon mint">≋</span></div><div class="stat-value" id="wordsAnalyzed">0</div><div class="stat-foot">Words in submitted documents</div></article>
+      </section>
+
+      <section class="workspace-grid" id="checker">
+        <article class="panel checker-panel">
+          <div class="panel-heading"><div><div class="section-kicker">DOCUMENT ANALYSIS</div><h2>Check your submission</h2><p>Paste your content or upload a plain-text file to begin.</p></div><span class="live-pill"><span></span> LIVE SCAN</span></div>
+          <form id="scanForm">
+            <label class="field-label" for="studentName">Document / student name <span>OPTIONAL</span></label>
+            <input id="studentName" class="text-input" type="text" placeholder="e.g. Research Paper — Goutham Vikas" maxlength="100" />
+            <div class="field-label content-label"><label for="documentText">Your submission</label><span id="wordCount">0 words</span></div>
+            <textarea id="documentText" placeholder="Paste your assignment, essay, or research content here…" required></textarea>
+            <div class="upload-row"><label class="upload-button" for="fileInput"><span>＋</span> Upload .txt file<input id="fileInput" type="file" accept=".txt,text/plain" hidden /></label><span class="upload-hint" id="fileName">TXT files up to 2 MB</span><button type="button" class="clear-button" id="clearText">Clear text</button></div>
+            <div class="divider"><span>COMPARE AGAINST</span></div>
+            <label class="field-label" for="referenceText">Reference text <span>REQUIRED FOR THIS DEMO</span></label>
+            <textarea id="referenceText" class="reference-area" placeholder="Paste a source passage or reference material to compare against…" required></textarea>
+            <div class="reference-note"><span>ⓘ</span> This demo compares your text only with the reference you provide. It does not search the web or academic databases.</div>
+            <button class="primary-button" type="submit"><span>✦</span> Analyze document <span class="button-arrow">↗</span></button>
+          </form>
+        </article>
+
+        <aside class="panel results-panel" id="reports">
+          <div class="results-head"><div><div class="section-kicker">YOUR RESULTS</div><h2>Analysis report</h2></div><span class="report-badge">PREVIEW</span></div>
+          <div class="empty-state" id="emptyState">
+            <div class="empty-visual"><div class="empty-ring ring-one"></div><div class="empty-ring ring-two"></div><div class="empty-document"><span></span><span></span><span></span><i>✦</i></div></div>
+            <h3>Your insights live here</h3><p>Run an analysis to see your similarity score, matched words, and a downloadable report.</p>
+            <div class="empty-steps"><span><b>01</b> Add your text</span><span><b>02</b> Add a reference</span><span><b>03</b> Review results</span></div>
+          </div>
+          <div class="results-content hidden" id="resultsContent">
+            <div class="score-wrap">
+              <div class="score-ring" id="scoreRing"><div><strong id="scoreValue">0%</strong><span>SIMILARITY</span></div></div>
+              <div class="score-description"><span class="result-status" id="resultStatus">LOW SIMILARITY</span><h3 id="resultHeadline">Looking good.</h3><p id="resultSummary">Your submission has been compared with the reference text.</p></div>
+            </div>
+            <div class="result-metrics"><div><span>Matched words</span><strong id="matchedWords">0</strong></div><div><span>Submission words</span><strong id="submissionWords">0</strong></div><div><span>Reference overlap</span><strong id="overlapPercent">0%</strong></div></div>
+            <div class="match-heading"><h3>Shared vocabulary</h3><span id="matchCount">0 terms</span></div>
+            <div class="matched-terms" id="matchedTerms"><span class="muted-text">No analysis yet.</span></div>
+            <div class="highlight-heading"><h3>Text review</h3><span>Matched terms highlighted</span></div>
+            <div class="highlight-box" id="highlightedText"></div>
+            <button class="secondary-button" id="downloadReport" type="button">↓ Download report <span>TXT</span></button>
+          </div>
+          <div class="results-footer"><span class="footer-lock">♢</span> Your text stays in this browser session.</div>
+        </aside>
+      </section>
+
+      <section class="bottom-grid" id="how-it-works">
+        <article class="panel insight-panel"><div class="section-kicker">HOW IT WORKS</div><h2>Better feedback. Better writing.</h2><p>Verity gives you a simple first-pass comparison so you can review overlapping language before submitting your work.</p><div class="steps-grid"><div class="step"><span>01</span><strong>Submit your text</strong><p>Paste your work or upload a .txt document.</p></div><div class="step"><span>02</span><strong>Compare sources</strong><p>Provide reference content to check against.</p></div><div class="step"><span>03</span><strong>Review the overlap</strong><p>Use the report as a guide for manual review.</p></div></div></article>
+        <article class="panel integrity-panel"><div class="integrity-symbol">✧</div><div class="section-kicker">A NOTE ON INTEGRITY</div><h2>Similarity is a signal,<br>not a verdict.</h2><p>Common phrases, citations, and technical terms can naturally overlap. Always review matched passages in context and cite sources appropriately.</p><div class="integrity-line"><span></span><span></span><span></span><span></span><span></span></div></article>
+      </section>
+      <footer class="page-footer"><span>© 2026 Verity Academic Tools</span><span>Built for clearer, more original work <b>✦</b></span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
